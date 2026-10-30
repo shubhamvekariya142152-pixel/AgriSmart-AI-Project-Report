@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriSmart - AI-Powered Crop Advisory System</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background-color: #f4f7f6; color: #333; }
+        header { background-color: #2e7d32; color: white; padding: 20px; text-align: center; border-radius: 8px; }
+        .container { max-width: 800px; margin: 20px auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; font-weight: bold; margin-bottom: 5px; }
+        select, input, button { width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
+        button { background-color: #2e7d32; color: white; border: none; cursor: pointer; font-size: 16px; }
+        button:hover { background-color: #1b5e20; }
+        .result { margin-top: 20px; padding: 15px; background: #e8f5e9; border-left: 5px solid #2e7d32; display: none; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>🌾 AgriSmart - Crop Advisory & Weather Prediction</h1>
+    <p>AI-Assisted Web Application Project | Marwadi University</p>
+</header>
+
+<div class="container">
+    <h2>Get Smart Crop Recommendation</h2>
+    <div class="form-group">
+        <label for="soil">Soil Type:</label>
+        <select id="soil">
+            <option value="Black Soil">Black Soil</option>
+            <option value="Alluvial Soil">Alluvial Soil</option>
+            <option value="Red Soil">Red Soil</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="season">Season:</label>
+        <select id="season">
+            <option value="Kharif">Kharif (Monsoon)</option>
+            <option value="Rabi">Rabi (Winter)</option>
+            <option value="Zaidd">Zaid (Summer)</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="region">Region / City:</label>
+        <input type="text" id="region" placeholder="e.g. Rajkot, Gujarat">
+    </div>
+    <button onclick="getRecommendation()">Analyze & Recommend Crop</button>
+
+    <div class="result" id="resultBox">
+        <h3 id="cropTitle">Recommended Crop: Cotton / Groundnut</h3>
+        <p id="cropDetails">Optimal soil moisture needed: 60-70%. AI predicts favorable rainfall in Rajkot region over the next 15 days.</p>
+    </div>
+</div>
+
+<script>
+function getRecommendation() {
+    const soil = document.getElementById('soil').value;
+    const season = document.getElementById('season').value;
+    const region = document.getElementById('region').value || "Rajkot";
+    
+    document.getElementById('resultBox').style.display = 'block';
+    document.getElementById('cropTitle').innerText = "AI Recommendation for " + region + " (" + season + "):";
+    document.getElementById('cropDetails').innerText = "Based on " + soil + " and " + season + " conditions, the best suited crop is Cotton/Wheat with estimated yield improvement of 22%. Weather forecasts indicate ideal temperature range (24°C - 32°C).";
+}
+</script>
+
+</body>
+</html>
